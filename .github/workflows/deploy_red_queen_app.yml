@@ -44,4 +44,4 @@ jobs:
         run: npm install -g surge
       # Run Surge
       - name: Run Surge
-        run: surge ./build/ shahzaibnoor-shoe-store-bootcamp-2020.surge.sh --token ${{ secrets.shahzaib_shoe_store_app_bootcamp_2020 }}  
+        run: surge ./build/ shahzaibnoor-red-alice-queen-bootcamp-2020.surge.sh --token ${{ secrets.shahzaib_red_alice_queen_app_bootcamp_2020 }}  
