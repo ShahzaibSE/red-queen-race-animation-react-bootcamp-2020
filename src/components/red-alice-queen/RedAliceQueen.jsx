@@ -7,6 +7,7 @@ export const RedAliceQueen = () => {
     let background2 = useRef(null)
     let foreground1 = useRef(null)
     let foreground2 = useRef(null)
+    let red_queen_alice_spirit = useRef(null)
 
     useEffect(()=>{
         /* Background animations */
@@ -107,12 +108,12 @@ export const RedAliceQueen = () => {
         <div>
             <div className="sky"></div>
             <div className="earth">
-                {/* <div id="red-queen_and_alice">
+                <div id="red-queen_and_alice">
                     <img id="red-queen_and_alice_sprite" 
                          src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/641/sprite_running-alice-queen_small.png" 
                          srcSet="https://s3-us-west-2.amazonaws.com/s.cdpn.io/641/sprite_running-alice-queen.png 2x" 
                          alt="Alice and the Red Queen running to stay in place."/>
-                </div> */}
+                </div>
             </div>
             <div className="scenery" id="foreground1">
                 <img id="palm3" src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/641/palm3_small.png" srcSet="https://s3-us-west-2.amazonaws.com/s.cdpn.io/641/palm3.png 2x" alt=" " />
