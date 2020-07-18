@@ -1,6 +1,7 @@
 import React, {useEffect, useRef} from 'react'
 // Assets.
 import "./RedAliceQueen.scss"
+import cup_cake_image from "./../../images/cup-cake.png"
 
 export const RedAliceQueen = () => {
     let background1 = useRef(null)
@@ -8,6 +9,9 @@ export const RedAliceQueen = () => {
     let foreground1 = useRef(null)
     let foreground2 = useRef(null)
     let red_queen_alice_spirit = useRef(null)
+    let cake = useRef(null)
+    let bottle = useRef(null)
+    let nomingCake = useRef(null)
 
     useEffect(()=>{
         /* Background animations */
@@ -45,6 +49,27 @@ export const RedAliceQueen = () => {
 
         var foreground2Movement = foreground2.current.animate(
         sceneryFrames, sceneryTimingForeground);
+        // Keyframes for bouncing the controls
+        let tryMeKeys = [
+            { transform: 'translateY(0) scale(1, 1) rotate(0)', easing: 'ease-in' },
+            { transform: 'translateY(0) scale(1.1, .9) rotate(0)' },
+            // { transform: 'translateY(-10%) scale(.9, 1.1) rotate(0)', offset: .4 },
+            // { transform: 'translateY(-10%) scale(1, 1) rotate(10deg)', offset: .5 },
+            // { transform: 'translateY(-10%) scale(1, 1) rotate(-10deg)', offset: .7 },
+            // { transform: 'translateY(-10%) scale(1,1) rotate(0deg)', offset: .8, easing: 'ease-in' },
+            { transform: 'translateY(0) scale(1, 1) rotate(0)' }
+        ];
+
+        function trytheCake(){
+            cake.current.animate(tryMeKeys, { id: 'bounce', delay: 7000, duration: 2000, iterations: 2 });
+          }
+        trytheCake();
+        let trytheCakeTimer = setInterval(trytheCake, 12000);
+          
+        function trytheBottle(){
+            bottle.current.animate(tryMeKeys, { id: 'bounce', duration: 2000, iterations: 2 }); 
+        }
+        let trytheBottleTimer = setInterval(trytheBottle, 12000);
 
         var spriteFrames = [
             { transform: 'translateY(0)' },
@@ -114,6 +139,18 @@ export const RedAliceQueen = () => {
                          src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/641/sprite_running-alice-queen_small.png" 
                          srcSet="https://s3-us-west-2.amazonaws.com/s.cdpn.io/641/sprite_running-alice-queen.png 2x" 
                          alt="Alice and the Red Queen running to stay in place."/>
+                </div>
+                <div id="eat-me" ref={cake}>
+                    <img id="eat-me_sprite" ref={nomingCake} 
+                        src={cup_cake_image} 
+                        alt="A cake labeled Eat Me"/>
+                </div>
+                <div id="bottle" ref={bottle}>
+                    <div id="liquid"></div>
+                    <img className="fg" 
+                            src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/641/drink-me_fg_small.png" 
+                            srcSet="https://s3-us-west-2.amazonaws.com/s.cdpn.io/641/drink-me_fg.png 2x" 
+                            alt="Bottle drink to shrink Alice"/>
                 </div>
             </div>
             <div className="scenery" id="foreground1" ref={foreground1}>
