@@ -60,6 +60,8 @@ export const RedAliceQueen = () => {
             { transform: 'translateY(0) scale(1, 1) rotate(0)' }
         ];
 
+        // --- Alice Shrinking -- //
+
         function trytheCake(){
             cake.current.animate(tryMeKeys, { id: 'bounce', delay: 7000, duration: 2000, iterations: 2 });
           }
@@ -70,6 +72,31 @@ export const RedAliceQueen = () => {
             bottle.current.animate(tryMeKeys, { id: 'bounce', duration: 2000, iterations: 2 }); 
         }
         let trytheBottleTimer = setInterval(trytheBottle, 12000);
+
+        let aliceChange = red_queen_alice_spirit.current.animate(
+            [
+              { transform: 'translate(-50%, -50%) scale(.5)' },
+              { transform: 'translate(-50%, -50%) scale(2)' }   
+            ], { 
+              duration: 8000, 
+              easing: 'ease-in-out', 
+              fill: 'both'
+        });
+
+        aliceChange.pause();
+        aliceChange.currentTime = aliceChange.effect.timing.duration / 2 ;
+
+        let growAlice = () => {
+            aliceChange.playbackRate = 1
+            aliceChange.play()
+        }
+
+        let shrinkAlice = () => {
+            aliceChange.playbackRate = -1;
+            aliceChange.play();
+        }
+
+        // --- //
 
         var spriteFrames = [
             { transform: 'translateY(0)' },
