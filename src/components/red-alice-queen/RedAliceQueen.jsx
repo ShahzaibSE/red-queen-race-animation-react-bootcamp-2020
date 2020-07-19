@@ -155,6 +155,10 @@ export const RedAliceQueen = () => {
 
         window.addEventListener("click", goFaster);
         window.addEventListener("touchstart", goFaster);
+        cake.addEventListener("mousedown", growAlice, false);
+        cake.addEventListener("touchstart", growAlice, false);
+        bottle.addEventListener("mousedown", shrinkAlice, false);
+        bottle.addEventListener("touchstart", shrinkAlice, false);
     })
     
     return (
