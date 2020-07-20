@@ -62,39 +62,41 @@ export const RedAliceQueen = () => {
 
         // --- Alice Shrinking -- //
 
-        function trytheCake(){
-            cake.current.animate(tryMeKeys, { id: 'bounce', delay: 7000, duration: 2000, iterations: 2 });
-          }
-        trytheCake();
-        let trytheCakeTimer = setInterval(trytheCake, 12000);
+        // function trytheCake(){
+        //     cake.current.animate(tryMeKeys, { id: 'bounce', delay: 7000, duration: 2000, iterations: 2 });
+        //   }
+        // trytheCake();
+        // let trytheCakeTimer = setInterval(trytheCake, 12000);
           
-        function trytheBottle(){
-            bottle.current.animate(tryMeKeys, { id: 'bounce', duration: 2000, iterations: 2 }); 
-        }
-        let trytheBottleTimer = setInterval(trytheBottle, 12000);
+        // function trytheBottle(){
+        //     bottle.current.animate(tryMeKeys, { id: 'bounce', duration: 2000, iterations: 2 }); 
+        // }
+        // let trytheBottleTimer = setInterval(trytheBottle, 12000);
 
-        let aliceChange = red_queen_alice_spirit.current.animate(
-            [
-              { transform: 'translate(-50%, -50%) scale(.5)' },
-              { transform: 'translate(-50%, -50%) scale(2)' }   
-            ], { 
-              duration: 8000, 
-              easing: 'ease-in-out', 
-              fill: 'both'
-        });
+        // let aliceChange = red_queen_alice_spirit.current.animate(
+        //     [
+        //       { transform: 'scale(.5)' },
+        //       { transform: 'scale(2)' }   
+        //     ], { 
+        //       duration: 8000, 
+        //       easing: 'ease-in-out', 
+        //       fill: 'both'
+        // });
 
-        aliceChange.pause();
-        aliceChange.currentTime = aliceChange.effect.timing.duration / 2 ;
+        // // aliceChange.pause();
+        // aliceChange.currentTime = aliceChange.effect.timing.duration / 2 ;
 
-        let growAlice = () => {
-            aliceChange.playbackRate = 1
-            aliceChange.play()
-        }
+        // let growAlice = () => {
+        //     console.log("Grow Alice")
+        //     aliceChange.playbackRate = 1
+        //     aliceChange.play()
+        // }
 
-        let shrinkAlice = () => {
-            aliceChange.playbackRate = -1;
-            aliceChange.play();
-        }
+        // let shrinkAlice = () => {
+        //     console.log("Shrink Alice")
+        //     aliceChange.playbackRate = -1;
+        //     aliceChange.play();
+        // }
 
         // --- //
 
@@ -155,10 +157,10 @@ export const RedAliceQueen = () => {
 
         window.addEventListener("click", goFaster);
         window.addEventListener("touchstart", goFaster);
-        // cake.addEventListener("mousedown", growAlice, false);
-        // cake.addEventListener("touchstart", growAlice, false);
-        // bottle.addEventListener("mousedown", shrinkAlice, false);
-        // bottle.addEventListener("touchstart", shrinkAlice, false);
+        // nomingCake.current.addEventListener("mousedown", growAlice, false);
+        // nomingCake.current.addEventListener("touchstart", growAlice, false);
+        // bottle.current.addEventListener("mousedown", shrinkAlice, false);
+        // bottle.current.addEventListener("touchstart", shrinkAlice, false);
     })
     
     return (
@@ -167,22 +169,23 @@ export const RedAliceQueen = () => {
             <div className="earth">
                 <div id="red-queen_and_alice">
                     <img id="red-queen_and_alice_sprite" ref={red_queen_alice_spirit} 
+                         transform="translate(4.46 32) scale(0.482)"
                          src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/641/sprite_running-alice-queen_small.png" 
                          srcSet="https://s3-us-west-2.amazonaws.com/s.cdpn.io/641/sprite_running-alice-queen.png 2x" 
                          alt="Alice and the Red Queen running to stay in place."/>
                 </div>
-                <div id="eat-me" ref={cake}>
+                {/* <div id="eat-me" ref={cake}>
                     <img id="eat-me_sprite" ref={nomingCake} 
                         src={cup_cake_image} 
                         alt="A cake labeled Eat Me"/>
                 </div>
-                <div id="bottle" ref={bottle}>
+                <div id="bottle">
                     <div id="liquid"></div>
-                    <img className="fg" 
+                    <img className="fg" ref={bottle}
                             src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/641/drink-me_fg_small.png" 
                             srcSet="https://s3-us-west-2.amazonaws.com/s.cdpn.io/641/drink-me_fg.png 2x" 
                             alt="Bottle drink to shrink Alice"/>
-                </div>
+                </div> */}
             </div>
             <div className="scenery" id="foreground1" ref={foreground1}>
                 <img id="palm3" src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/641/palm3_small.png" srcSet="https://s3-us-west-2.amazonaws.com/s.cdpn.io/641/palm3.png 2x" alt=" " />
